@@ -1,10 +1,11 @@
 {
   "name": "@spacejelly/figma-to-cloudinary",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Convert a Figma art board to a Cloudinary URL",
   "main": "dist/index.js",
   "scripts": {
     "build": "esbuild src/index.js --bundle --platform=node --outfile=dist/index.js",
+    "prepublishOnly": "yarn build",
     "test": "jest"
   },
   "author": {
@@ -21,5 +22,13 @@
   },
   "devDependencies": {
     "jest": "^27.3.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/colbyfayock/spacejelly",
+    "directory": "packages/figma-to-cloudinary"
+  },
+  "bugs": {
+    "url": "https://github.com/colbyfayock/spacejelly/issues"
   }
 }
