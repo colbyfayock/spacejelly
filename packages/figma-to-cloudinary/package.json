@@ -1,6 +1,6 @@
 {
   "name": "@spacejelly/figma-to-cloudinary",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Convert a Figma art board to a Cloudinary URL",
   "main": "dist/index.js",
   "scripts": {
