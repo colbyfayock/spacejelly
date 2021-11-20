@@ -5,11 +5,16 @@ const { getDocumentByFileNode, getImagesByFileNodes, colorsToRGB } = require('./
 async function figmaToCloudinary(settings = {}) {
   const {
     cldCloudId,
-    cldImageId,
     figmaFileId,
     figmaNodeId,
-    textFields
+    textFields = {},
+    options = {}
   } = settings;
+
+  const {
+    baseImageId = 'https://i.imgur.com/hcmCzxl.png',
+    baseImageMethod = 'fetch'
+  } = options;
 
   const document = await getDocumentByFileNode({
     fileId: figmaFileId,
@@ -102,7 +107,7 @@ async function figmaToCloudinary(settings = {}) {
   
   const layerFragments = [].concat([backgroundLayer], imageLayers, textLayers);
 
-  const url = `https://res.cloudinary.com/${cldCloudId}/image/upload/${layerFragments.join('/')}/${cldImageId}.png`;
+  const url = `https://res.cloudinary.com/${cldCloudId}/image/${baseImageMethod}/${layerFragments.join('/')}/${encodeURIComponent(baseImageId)}`;
 
   return url;
 }
